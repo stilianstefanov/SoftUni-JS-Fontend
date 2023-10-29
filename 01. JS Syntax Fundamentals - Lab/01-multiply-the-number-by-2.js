@@ -1,3 +1,3 @@
-function multiplyBy2(num) {
+function solve(num) {
     console.log(num * 2)
 }
