@@ -42,5 +42,3 @@ function solve(dayType, age) {
         }
     }
 }
-
-solve('Weekday', 110);
