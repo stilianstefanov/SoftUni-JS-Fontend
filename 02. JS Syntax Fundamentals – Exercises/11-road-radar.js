@@ -2,18 +2,10 @@ function solve(speed, area) {
     let speedlimit = 0;
 
     switch (area) {
-        case 'motorway':
-            speedlimit = 130;
-            break;
-        case 'interstate':
-            speedlimit = 90;
-            break;
-        case 'city':
-            speedlimit = 50;
-            break;
-        default:
-            speedlimit = 20;
-            break;
+        case 'motorway': speedlimit = 130; break;
+        case 'interstate': speedlimit = 90; break;
+        case 'city': speedlimit = 50; break;
+        default: speedlimit = 20; break;
     }
 
     if (speed <= speedlimit) {
