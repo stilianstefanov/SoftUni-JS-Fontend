@@ -1,5 +1,4 @@
 function solve(peopleCount, groupType, day) {
-
     let totalprice;
 
     if (groupType === 'Students') {
