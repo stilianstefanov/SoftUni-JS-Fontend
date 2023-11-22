@@ -25,21 +25,3 @@ function solve(browserObj, commandArr) {
     console.log(`Recently Closed: ${browserObj['Recently Closed'].join(', ')}`);
     console.log(`Browser Logs: ${browserObj['Browser Logs'].join(', ')}`);
 }
-
-
-
-
-
-solve({"Browser Name":"Mozilla Firefox",
-
-"Open Tabs":["YouTube"],
-
-"Recently Closed":["Gmail",
-
-"Dropbox"],
-
-"Browser Logs":["Open Gmail",
-
-"Close Gmail", "Open Dropbox", "Open YouTube", "Close Dropbox"]},
-
-["Open Wikipedia", "Clear History and Cache", "Open Twitter"])
