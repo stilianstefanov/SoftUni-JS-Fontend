@@ -20,6 +20,7 @@ function solve(args) {
 
             if (currentOperationName === previousOperationName) {
                 sameOperationsCount++;
+                
             } else if (previousOperationName !== "") {
                 console.log(`${previousOperationName} x${sameOperationsCount}`);
                 sameOperationsCount = 1;

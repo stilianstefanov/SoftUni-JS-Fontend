@@ -7,8 +7,7 @@ function palindromeCheck(numbers) {
         if (currentNum.length % 2 === 0) {
             firstHalf = currentNum.split('').slice(0, currentNum.length / 2);
             secondHalfReversed = currentNum.split('').slice(currentNum.length / 2).reverse();
-        }
-        else {
+        } else {
             firstHalf = currentNum.split('').slice(0, Math.floor(currentNum.length / 2));
             secondHalfReversed = currentNum.split('').slice(Math.ceil(currentNum.length / 2)).reverse();
         }

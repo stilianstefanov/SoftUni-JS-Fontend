@@ -6,12 +6,12 @@ function solve(passwords) {
         if(p === username.split('').reverse().join('')) {
             console.log(`User ${username} logged in.`);
             return;
-        }
-        else if(counter === 4){
+            
+        } else if(counter === 4){
             console.log(`User ${username} blocked!`);
             return;
-        }
-        else {
+
+        } else {
             console.log(`Incorrect password. Try again.`);
             counter++;
         }

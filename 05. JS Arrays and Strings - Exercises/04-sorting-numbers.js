@@ -6,8 +6,7 @@ function solve(array) {
         if (indicator % 2 === 1) {
             array.sort((a, b) => a - b);
             resultarr.push(array.shift());
-        }
-        else {
+        } else {
             array.sort((a, b) => b - a);
             resultarr.push(array.shift());
         }

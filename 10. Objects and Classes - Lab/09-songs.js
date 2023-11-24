@@ -17,8 +17,8 @@ function solve(input) {
 
     if (typeList === 'all') {
         songsCollection.forEach(s => console.log(s.name));
-    }
-    else {
+
+    } else {
         songsCollection.filter(s => s.type === typeList).forEach(s => console.log(s.name));
     }
 }

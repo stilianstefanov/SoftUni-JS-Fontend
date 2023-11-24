@@ -5,8 +5,7 @@ function solve(array) {
     for (const number of array) {
         if (number % 2 == 0) {
             evensum += number;
-        }
-        else {
+        } else {
             oddsum += number;
         }
     }

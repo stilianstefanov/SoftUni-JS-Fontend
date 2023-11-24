@@ -8,8 +8,7 @@ function solve(num) {
     for (let i = 0; i < 10; i++) {
         if (i < num / 10) {
             bar.push('%');
-        }
-        else {
+        } else {
             bar.push('.');
         }
     }

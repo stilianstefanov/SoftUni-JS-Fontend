@@ -10,8 +10,8 @@ function solve(speed, area) {
 
     if (speed <= speedlimit) {
         console.log(`Driving ${speed} km/h in a ${speedlimit} zone`);
-    }
-    else {
+        
+    } else {
         let speeddiff = speed - speedlimit;
         let status = '';
 

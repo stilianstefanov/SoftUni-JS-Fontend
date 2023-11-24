@@ -16,8 +16,8 @@ function solve(peopleCount, groupType, day) {
         if (peopleCount >= 30) {
             totalprice -= (totalprice * 0.15)
         }
-    }
-    else if (groupType === 'Business') {
+
+    } else if (groupType === 'Business') {
 
         if (peopleCount >= 100) {
             peopleCount -= 10;
@@ -33,8 +33,8 @@ function solve(peopleCount, groupType, day) {
             case 'Sunday':
                 totalprice = peopleCount * 16.00;
         }
-    }
-    else {
+        
+    } else {
         switch (day) {
             case 'Friday':
                 totalprice = peopleCount * 15.00;
