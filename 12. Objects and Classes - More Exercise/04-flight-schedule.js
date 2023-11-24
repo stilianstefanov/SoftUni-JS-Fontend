@@ -21,8 +21,7 @@ function solve(inputArr) {
             if (flights[key].status === 'Ready to fly')
                 console.log(`{ Destination: '${flights[key].destination}', Status: '${flights[key].status}' }`);
         }
-    }
-    else {
+    } else {
         for (const key in flights) {
             if (flights[key].status !== 'Ready to fly')
                 console.log(`{ Destination: '${flights[key].destination}', Status: '${flights[key].status}' }`);

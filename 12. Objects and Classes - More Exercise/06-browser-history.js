@@ -4,15 +4,14 @@ function solve(browserObj, commandArr) {
 
         if (command === 'Open') {
             browserObj['Open Tabs'].push(website);
-        }
-        else if (command === 'Close') {
+        } else if (command === 'Close') {
             if (!browserObj['Open Tabs'].includes(website)) continue;
 
             const index = browserObj['Open Tabs'].indexOf(website);
             browserObj['Open Tabs'].splice(index, 1);
             browserObj['Recently Closed'].push(website);
-        }
-        else {
+            
+        } else {
             browserObj['Open Tabs'] = [];
             browserObj['Recently Closed'] = [];
             browserObj['Browser Logs'] = [];
