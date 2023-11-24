@@ -28,6 +28,7 @@ function solve(inputArr) {
         }
     }
     let sortedCourses = courses.sort((a, b) => b.students.length - a.students.length);
+    
     for (const course of sortedCourses) {
         console.log(`${course.name}: ${course.capacity - course.students.length} places left`);
 

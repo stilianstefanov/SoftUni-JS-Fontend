@@ -23,6 +23,7 @@ function solve(inputArr) {
         }
     }
     let sortedShelves = Object.entries(library).sort((a, b) => b[1].books.length - a[1].books.length);
+    
     for (const shelf of sortedShelves) {
         console.log(`${shelf[0]} ${shelf[1].genre}: ${shelf[1].books.length}`);
 

@@ -26,8 +26,9 @@ function solve(inputArr) {
             }
         }
     }
+    let sortedArticles = Object.entries(articles).sort((a, b) => b[1].length - a[1].length);
 
-    for (const [article, comments] of Object.entries(articles).sort((a, b) => b[1].length - a[1].length)) {
+    for (const [article, comments] of sortedArticles) {
         console.log(`Comments on ${article}`);
 
         for (const comment of comments.sort((a, b) => a.user.localeCompare(b.user))) {

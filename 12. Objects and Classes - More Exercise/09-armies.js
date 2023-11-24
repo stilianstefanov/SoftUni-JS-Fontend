@@ -23,7 +23,9 @@ function solve(input) {
             if (leaderName in armies) delete armies[leaderName];
         }
     }
-    for (const [leader, armiesObj] of Object.entries(armies).sort((a, b) => sum(Object.values(b[1])) - sum(Object.values(a[1])))) {
+    let sortedArmies = Object.entries(armies).sort((a, b) => sum(Object.values(b[1])) - sum(Object.values(a[1])));
+    
+    for (const [leader, armiesObj] of sortedArmies) {
         console.log(`${leader}: ${sum(Object.values(armiesObj))}`);
 
         for (const [armyName, armyCount] of Object.entries(armiesObj).sort((a, b) => b[1] - a[1])) {
