@@ -6,12 +6,12 @@ function solve(inputArr) {
         if (commandInfo.includes('user')) {
             const userName = commandInfo.split('user ')[1];
             users.push(userName);
-        }
-        else if(commandInfo.includes('article')) {
+            
+        } else if(commandInfo.includes('article')) {
             const articleName = commandInfo.split('article ')[1];
             articles[articleName] = [];
-        }
-        else {
+
+        } else {
             let [userArticleInfo, commentInfo] = commandInfo.split(': ');
             let [userName, articleName] = userArticleInfo.split(' posts on ');
             let [commentTitle, commentContent] = commentInfo.split(', ');

@@ -10,8 +10,7 @@ function solve(inputArr) {
                 genre: genre,
                 books: []
             };
-        }
-        else {
+        } else {
             const [bookTitle, bookInfo] = command.split(': ');
             const [author, bookGenre] = bookInfo.split(', ');
             if (!Object.values(library).some(s => s.genre === bookGenre)) continue;

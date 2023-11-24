@@ -4,21 +4,21 @@ function solve(input) {
         if (commandInfo.includes('arrives')) {
             const leaderName = commandInfo.split(' arrives')[0];
             armies[leaderName] = {};
-        }
-        else if (commandInfo.includes(': ')) {
+
+        } else if (commandInfo.includes(': ')) {
             let [leaderName, armyInfo] = commandInfo.split(': ');
             let [armyName, armyCount] = armyInfo.split(', ');
+            if (armies.hasOwnProperty(leaderName))
+                armies[leaderName][armyName] = Number(armyCount);
 
-            if (armies.hasOwnProperty(leaderName)) armies[leaderName][armyName] = Number(armyCount);
-        }
-        else if (commandInfo.includes('+')) {
+        } else if (commandInfo.includes('+')) {
             let [armyName, countToAdd] = commandInfo.split(' + ');
 
             for (const leader in armies) {
                 if (armyName in armies[leader]) armies[leader][armyName] += Number(countToAdd);
             }
-        }
-        else {
+
+        } else {
             const leaderName = commandInfo.split(' defeated')[0];
             if (leaderName in armies) delete armies[leaderName];
         }

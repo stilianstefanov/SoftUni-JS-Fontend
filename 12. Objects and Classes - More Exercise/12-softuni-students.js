@@ -12,8 +12,7 @@ function solve(inputArr) {
                 capacity: Number(capacity),
                 students: []
             });
-        }
-        else {
+        } else {
             const [userCredits, mailCourse] = command.split(' with email ');
             const [userName, credits] = userCredits.split('[');
             const [email, courseName] = mailCourse.split(' joins ');
