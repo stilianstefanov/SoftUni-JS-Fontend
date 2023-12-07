@@ -1,4 +1,5 @@
 function attachEvents() {
+    const baseUrl = 'http://localhost:3030/jsonstore/collections/books/';
     let loadBooksButton = document.getElementById('loadBooks');
     let tableBody = document.getElementsByTagName('tbody')[0];
 
@@ -10,28 +11,40 @@ function attachEvents() {
     loadBooksButton.addEventListener('click', loadAllBooks);
     submitNewButton.addEventListener('click', createOrEditBook);
 
-    async function loadAllBooks() {
-        await fetch('http://localhost:3030/jsonstore/collections/books/')
+    function loadAllBooks() {
+        fetch(baseUrl)
             .then(response => response.json())
             .then(books => {
                 tableBody.innerHTML = '';
                 Object.entries(books).forEach(entry => {
+                    const bookId = entry[0];
+                    const bookInfo = entry[1];
                     let newRow = document.createElement('tr');
+
                     let newTitleColumn = document.createElement('td');
+                    newTitleColumn.textContent = bookInfo.title;
+                    newRow.appendChild(newTitleColumn);
+
                     let newAuthorColumn = document.createElement('td');
+                    newAuthorColumn.textContent = bookInfo.author;
+                    newRow.appendChild(newAuthorColumn);
+
                     let newActionsColumn = document.createElement('td');
+                    newRow.appendChild(newActionsColumn);
 
                     let newEditButton = document.createElement('button');
-                    let newDeleteButton = document.createElement('button');
                     newEditButton.textContent = 'Edit';
-                    newEditButton.value = entry[0];
+                    newEditButton.value = bookId;
+                    newActionsColumn.appendChild(newEditButton);
+
+                    let newDeleteButton = document.createElement('button');
                     newDeleteButton.textContent = 'Delete';
-                    newDeleteButton.value = entry[0];
+                    newDeleteButton.value = bookId;
+                    newActionsColumn.appendChild(newDeleteButton);
 
-                    newTitleColumn.textContent = entry[1].title;
-                    newAuthorColumn.textContent = entry[1].author;
+                    tableBody.appendChild(newRow);
 
-                    newEditButton.addEventListener('click', function fillEditForm(e) {
+                    newEditButton.addEventListener('click', (e) => {
                         inputFormTitle.textContent = 'Edit FORM';
                         submitNewButton.textContent = 'Save';
                         submitNewButton.value = e.currentTarget.value;
@@ -39,23 +52,17 @@ function attachEvents() {
                         inputAuthorField.value = newAuthorColumn.textContent;
                     });
                     newDeleteButton.addEventListener('click', deleteBook);
-
-                    newActionsColumn.appendChild(newEditButton);
-                    newActionsColumn.appendChild(newDeleteButton);
-                    newRow.appendChild(newTitleColumn);
-                    newRow.appendChild(newAuthorColumn);
-                    newRow.appendChild(newActionsColumn);
-                    tableBody.appendChild(newRow);
-                })
+                });
             });
     }
 
     async function deleteBook(e) {
-        let deleteURL = `http://localhost:3030/jsonstore/collections/books/${e.currentTarget.value}`;
+        let deleteURL = baseUrl + e.currentTarget.value;
         await fetch(deleteURL, {
             method: 'DELETE'
         });
-        await loadAllBooks();
+
+        loadAllBooks();
     }
 
     async function createOrEditBook(e) {
@@ -68,16 +75,16 @@ function attachEvents() {
         }
 
         if (submitButton.textContent === 'Submit') {
-            await fetch('http://localhost:3030/jsonstore/collections/books', {
+            await fetch(baseUrl, {
                 method: "POST",
                 body: JSON.stringify({ title, author })
             });
 
         } else {
             let id = submitButton.value;
-            await fetch(('http://localhost:3030/jsonstore/collections/books/' + id), {
+            await fetch((baseUrl + id), {
                 method: "PUT",
-                body: JSON.stringify({ title, author })
+                body: JSON.stringify({ title, author }),
             });
         }
 
@@ -86,7 +93,8 @@ function attachEvents() {
         submitButton.value = '';
         inputAuthorField.value = '';
         inputTitleField.value = '';
-        await loadAllBooks();
+
+        loadAllBooks();
     }
 }
 
