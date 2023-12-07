@@ -38,7 +38,7 @@ function attachEvents() {
                         inputTitleField.value = newTitleColumn.textContent;
                         inputAuthorField.value = newAuthorColumn.textContent;
                     });
-                    newDeleteButton.addEventListener('click', DeleteBook);
+                    newDeleteButton.addEventListener('click', deleteBook);
 
                     newActionsColumn.appendChild(newEditButton);
                     newActionsColumn.appendChild(newDeleteButton);
@@ -50,7 +50,7 @@ function attachEvents() {
             });
     }
 
-    async function DeleteBook(e) {
+    async function deleteBook(e) {
         let deleteURL = `http://localhost:3030/jsonstore/collections/books/${e.currentTarget.value}`;
         await fetch(deleteURL, {
             method: 'DELETE'
