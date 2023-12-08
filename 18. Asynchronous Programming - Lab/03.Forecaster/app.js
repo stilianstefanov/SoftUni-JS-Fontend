@@ -90,8 +90,8 @@ function attachEvents() {
             });
     }
 
-    function appendSpanElements(divElement, daysInfo) {
-        for (const day of daysInfo) {
+    function appendSpanElements(divElement, daysWeather) {
+        for (const day of daysWeather) {
             let newUpcomingSpan = document.createElement('span');
             newUpcomingSpan.classList.add('upcoming');
             divElement.appendChild(newUpcomingSpan);
