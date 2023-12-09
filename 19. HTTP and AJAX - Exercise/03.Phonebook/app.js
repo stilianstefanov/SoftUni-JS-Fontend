@@ -50,7 +50,6 @@ function attachEvents() {
 
         personInput.value = '';
         phoneInput.value = '';
-
         await loadContacts();
     }
 }
