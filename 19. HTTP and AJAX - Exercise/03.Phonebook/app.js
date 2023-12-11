@@ -24,6 +24,7 @@ function attachEvents() {
             deleteButton.textContent = 'Delete';
             deleteButton.addEventListener('click', (e) =>  deleteContact(e));
             li.appendChild(deleteButton);
+
         }
     }
 
@@ -51,6 +52,7 @@ function attachEvents() {
         personInput.value = '';
         phoneInput.value = '';
         await loadContacts();
+        
     }
 }
 
