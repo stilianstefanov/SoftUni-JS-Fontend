@@ -137,15 +137,15 @@ function attachEvents() {
         await loadCourses();
     }
 
-    // async function deleteCourse(event) {
-    //     let courseId = event.currentTarget.value;
+    async function deleteCourse(event) {
+        let courseId = event.currentTarget.value;
 
-    //     await fetch(baseURL + courseId, {
-    //         method: 'DELETE'
-    //     });
+        await fetch(baseURL + courseId, {
+            method: 'DELETE'
+        });
 
-    //     await loadCourses();
-    // }
+        await loadCourses();
+    }
 }
 
 attachEvents();
